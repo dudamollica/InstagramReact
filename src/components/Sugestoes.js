@@ -1,6 +1,6 @@
 export default function Sugestoes() {
     const infosSugestoes=[
-        {img:"assets/img/bad.vibes.memes.svg", nome:"bad.vibes.memes", tipo:"Segue você"},
+        {img:"assets/img/nature.png", nome:"_nature", tipo:"Segue você"},
         {img:"assets/img/chibirdart.svg", nome:"chibirdart", tipo:"Segue você"},
         {img:"assets/img/razoesparaacreditar.svg", nome:"razoesparaacreditar", tipo:"Novo no Instagram"},
         {img:"assets/img/adorable_animals.svg", nome:"adorable_animals", tipo:"Segue você"},

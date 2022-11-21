@@ -6,7 +6,7 @@ export default function Stories() {
       {imagem:"assets/img/nathanwpylestrangeplanet.svg", nomeUsuario:"nathanwpylestrangeplanet"},
       {imagem:"assets/img/wawawicomics.svg", nomeUsuario:"wawawicomics"},
       {imagem:"assets/img/respondeai.svg", nomeUsuario:"respondeai"},
-      {imagem:"assets/img/filomoderna.svg", nomeUsuario:"filomoderna"},
+      {imagem:"assets/img/catanacomics.svg", nomeUsuario:"catanacomics"},
       {imagem:"assets/img/memeriagourmet.svg", nomeUsuario:"memeriagourmet"},
   ]
     return (

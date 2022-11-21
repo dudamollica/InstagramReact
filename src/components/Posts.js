@@ -2,12 +2,13 @@ import React from "react"
 
 export default function Posts() {
     const infosPosts = [
-        { imagemUsuario: "assets/img/meowed.svg", nomeUsuario: "meowed", imagemConteudo: "assets/img/gato-telefone.svg", imgQuemCurtiu: "assets/img/respondeai.svg", quemCurtiu: "respondeai", quantasCurtidas: "101.523" },
-        { imagemUsuario: "assets/img/barked.svg", nomeUsuario: "barked", imagemConteudo: "assets/img/dog.svg", imgQuemCurtiu: "assets/img/adorable_animals.svg", quemCurtiu: "adorable_animals", quantasCurtidas: "99.159" }
+        { imagemUsuario: "assets/img/woody.png", nomeUsuario: "woody_", imagemConteudo: "assets/img/woody-publicaçao.jpg", imgQuemCurtiu: "assets/img/respondeai.svg", quemCurtiu: "respondeai", quantasCurtidas: "203.428", legenda:"Amigo estou aqui!!!"},
+        { imagemUsuario: "assets/img/meowed.svg", nomeUsuario: "meowed", imagemConteudo: "assets/img/gato-telefone.svg", imgQuemCurtiu: "assets/img/respondeai.svg", quemCurtiu: "respondeai", quantasCurtidas: "101.523",legenda:"MIAUUUUU"},
+        { imagemUsuario: "assets/img/barked.svg", nomeUsuario: "barked", imagemConteudo: "assets/img/dog.svg", imgQuemCurtiu: "assets/img/adorable_animals.svg", quemCurtiu: "adorable_animals", quantasCurtidas: "99.159", legenda:"Soniiiin"}
     ]
     return (
         <div className="posts">
-            {infosPosts.map((p) => <UmPost key={p.nomeUsuario} imagemUsuario={p.imagemUsuario} nomeUsuario={p.nomeUsuario} imagemConteudo={p.imagemConteudo} imgQuemCurtiu={p.imgQuemCurtiu} quemCurtiu={p.quemCurtiu} quantasCurtidas={p.quantasCurtidas} />)}
+            {infosPosts.map((p) => <UmPost key={p.nomeUsuario} imagemUsuario={p.imagemUsuario} nomeUsuario={p.nomeUsuario} imagemConteudo={p.imagemConteudo} imgQuemCurtiu={p.imgQuemCurtiu} quemCurtiu={p.quemCurtiu} quantasCurtidas={p.quantasCurtidas} legenda={p.legenda}/>)}
 
         </div>
     )
@@ -75,10 +76,16 @@ function UmPost(props) {
                 </div>
 
                 <div className="curtidas">
+                    <div>
                     <img src={props.imgQuemCurtiu} />
-                    <div className="texto">
+                    <span className="texto">
                         Curtido por <strong>{props.quemCurtiu}</strong> e 
-                     <strong>outras <span data-test="likes-number">{heart.props.name=="heart-outline"?props.quantasCurtidas:likes}</span> pessoas</strong>
+                     <strong> outras <span data-test="likes-number">{heart.props.name=="heart-outline"?props.quantasCurtidas:likes}</span> pessoas</strong>
+                     </span>
+                     </div>
+                    <div className="legenda">
+                    <strong> {props.nomeUsuario}</strong> 
+                      <span> {props.legenda} </span> 
                     </div>
                 </div>
             </div>

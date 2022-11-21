@@ -3,7 +3,7 @@ import React from "react"
 export default function Usuario() {
 
     return (
-        <UmUsuario imagem="assets/img/catanacomics.svg" usuario="catanacomics" nome="Catana" />
+        <UmUsuario imagem="assets/img/woody.png" usuario="woody_" nome="Woody" />
     )
 }
 
