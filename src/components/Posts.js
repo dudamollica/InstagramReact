@@ -26,11 +26,14 @@ function UmPost(props) {
 
     const [likes, setLikes] = React.useState("")
     const [heart, setHeart] = React.useState(<ion-icon name="heart-outline"></ion-icon>)
+    const [heartWhite, setHeartWhite] = React.useState("")
 
     function curtidaImagem(){
+        setHeartWhite(<ion-icon name="heart" key="heartWhite" class="heartImg" ></ion-icon>)
         setHeart(<ion-icon name="heart" class="vermelho" ></ion-icon>)
         setLikes((Number(props.quantasCurtidas)+0.001).toFixed(3))
-    }
+        setTimeout(()=>setHeartWhite(""),500)
+}
 
     function curtidas() {  
     if (heart.props.name ==="heart-outline"){
@@ -55,7 +58,8 @@ function UmPost(props) {
             </div>
 
             <div className="conteudo">
-                <img data-test="post-image" onClick={curtidaImagem} src={props.imagemConteudo} />
+                <img data-test="post-image" onDoubleClick={curtidaImagem} src={props.imagemConteudo} />
+            {heartWhite}
             </div>
 
             <div className="fundo">

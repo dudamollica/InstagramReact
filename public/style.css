@@ -156,6 +156,7 @@ body {
   display: flex;
   flex-direction: column;
   margin-top: 18px;
+  position: relative;
 }
 
 .post .topo {
@@ -324,6 +325,30 @@ body {
 .vermelho {
   color: red;
 }
+
+.heartImg{
+  color:white;
+  font-size: 120px;
+  position: absolute;
+  top: 300px;
+  left:250px;
+  z-index: 2;
+  opacity: 0;
+  animation: grow 0.5s;
+  transition: grow 0.3s;
+}
+
+@keyframes grow {
+  0%{
+    transform: scale(0.2);
+    opacity: 1;
+  }
+  100%{
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
 
 @media (max-width: 935px) {
   .sidebar {
