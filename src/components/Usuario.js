@@ -12,13 +12,13 @@ function UmUsuario(props) {
     const [imagem, setImagem] = React.useState("")
 
     return (
-        <div className="usuario">
-            <img src={!imagem ? (props.imagem) : (imagem)} onClick={()=>setImagem(prompt("Coloque a URL da sua foto"))}/>
+        <div data-test="user" className="usuario">
+            <img data-test="profile-image" src={!imagem ? (props.imagem) : (imagem)} onClick={()=>setImagem(prompt("Coloque a URL da sua foto"))}/>
             <div className="texto">
                 <strong>{props.usuario}</strong>
-                <span>
-                    {!nome ? (props.nome) : (nome)}
-                    <ion-icon name="pencil" onClick={()=>setNome(prompt("Qual seu nome?"))}></ion-icon>
+                <span >
+                    <span data-test="name" >{!nome ? (props.nome) : (nome)}</span>
+                    <ion-icon data-test="edit-name" name="pencil" onClick={()=>setNome(prompt("Qual seu nome?"))}></ion-icon>
                 </span>
             </div>
         </div>

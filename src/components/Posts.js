@@ -6,8 +6,8 @@ export default function Posts() {
         { imagemUsuario: "assets/img/barked.svg", nomeUsuario: "barked", imagemConteudo: "assets/img/dog.svg", imgQuemCurtiu: "assets/img/adorable_animals.svg", quemCurtiu: "adorable_animals", quantasCurtidas: "99.159" }
     ]
     return (
-        <div class="posts">
-            {infosPosts.map((p) => <UmPost imagemUsuario={p.imagemUsuario} nomeUsuario={p.nomeUsuario} imagemConteudo={p.imagemConteudo} imgQuemCurtiu={p.imgQuemCurtiu} quemCurtiu={p.quemCurtiu} quantasCurtidas={p.quantasCurtidas} />)}
+        <div className="posts">
+            {infosPosts.map((p) => <UmPost key={p.nomeUsuario} imagemUsuario={p.imagemUsuario} nomeUsuario={p.nomeUsuario} imagemConteudo={p.imagemConteudo} imgQuemCurtiu={p.imgQuemCurtiu} quemCurtiu={p.quemCurtiu} quantasCurtidas={p.quantasCurtidas} />)}
 
         </div>
     )
@@ -23,38 +23,58 @@ function UmPost(props) {
             setSalvar(<ion-icon name="bookmark-outline"></ion-icon>)
         }
     }
+
+    const [likes, setLikes] = React.useState("")
+    const [heart, setHeart] = React.useState(<ion-icon name="heart-outline"></ion-icon>)
+
+    function curtidaImagem(){
+        setHeart(<ion-icon name="heart" class="vermelho" ></ion-icon>)
+        setLikes((Number(props.quantasCurtidas)+0.001).toFixed(3))
+    }
+
+    function curtidas() {  
+    if (heart.props.name ==="heart-outline"){
+        setHeart(<ion-icon name="heart" class="vermelho" ></ion-icon>)
+        setLikes((Number(props.quantasCurtidas)+0.001).toFixed(3))
+    }else{
+        setHeart(<ion-icon name="heart-outline"></ion-icon>) 
+    }
+    }
+
+
     return (
-        <div class="post">
-            <div class="topo">
-                <div class="usuario">
+        <div data-test="post" className="post">
+            <div className="topo">
+                <div className="usuario">
                     <img src={props.imagemUsuario} />
                     {props.nomeUsuario}
                 </div>
-                <div class="acoes">
+                <div className="acoes">
                     <ion-icon name="ellipsis-horizontal"></ion-icon>
                 </div>
             </div>
 
-            <div class="conteudo">
-                <img src={props.imagemConteudo} />
+            <div className="conteudo">
+                <img data-test="post-image" onClick={curtidaImagem} src={props.imagemConteudo} />
             </div>
 
-            <div class="fundo">
-                <div class="acoes">
+            <div className="fundo">
+                <div className="acoes">
                     <div>
-                        <ion-icon name="heart-outline"></ion-icon>
+                        <span data-test="like-post" onClick={curtidas}>{heart}</span>
                         <ion-icon name="chatbubble-outline"></ion-icon>
                         <ion-icon name="paper-plane-outline"></ion-icon>
                     </div>
-                    <div onClick={salvarOuNao}>
+                    <div data-test="save-post" onClick={salvarOuNao}>
                         {salvar}
                     </div>
                 </div>
 
-                <div class="curtidas">
+                <div className="curtidas">
                     <img src={props.imgQuemCurtiu} />
-                    <div class="texto">
-                        Curtido por <strong>{props.quemCurtiu}</strong> e <strong>outras {props.quantasCurtidas} pessoas</strong>
+                    <div className="texto">
+                        Curtido por <strong>{props.quemCurtiu}</strong> e 
+                     <strong>outras <span data-test="likes-number">{heart.props.name=="heart-outline"?props.quantasCurtidas:likes}</span> pessoas</strong>
                     </div>
                 </div>
             </div>
